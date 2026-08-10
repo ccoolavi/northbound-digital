@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northbound Digital — Fast, fixed-price technical builds</title>
+<meta name="description" content="Websites, cloud & server setup, and workflow automation — delivered in days, not weeks. Fixed price, 50% upfront.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --bg-alt:#f6f7f9; --text:#14181f; --text-muted:#54606f;
+    --border:#e4e7ec; --accent:#1d4ed8; --accent-ink:#ffffff; --card:#ffffff;
+    --shadow: 0 1px 2px rgba(20,24,31,0.04), 0 8px 24px rgba(20,24,31,0.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0b0d12; --bg-alt:#12151c; --text:#eef1f6; --text-muted:#9aa4b2;
+      --border:#232833; --accent:#5b8def; --accent-ink:#0b0d12; --card:#12151c;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  header{
+    position:sticky; top:0; z-index:10; background:var(--bg);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.05rem; letter-spacing:-0.01em;}
+  .brand .mark{
+    width:32px; height:32px; border-radius:9px; background:var(--accent); color:var(--accent-ink);
+    display:flex; align-items:center; justify-content:center; font-size:1rem;
+  }
+  .nav a.cta{
+    background:var(--accent); color:var(--accent-ink); padding:10px 18px; border-radius:8px;
+    text-decoration:none; font-weight:600; font-size:0.92rem;
+  }
+  section{padding:72px 0;}
+  .hero{padding-top:88px; padding-bottom:64px;}
+  h1{font-size:clamp(2.1rem, 4.4vw, 3.3rem); font-weight:800; letter-spacing:-0.02em; margin:0 0 20px; max-width:20ch;}
+  .hero p.lead{font-size:1.2rem; color:var(--text-muted); max-width:52ch; margin:0 0 32px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:9px;
+    font-weight:600; font-size:0.98rem; text-decoration:none; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent); color:var(--accent-ink);}
+  .btn-secondary{background:transparent; color:var(--text); border-color:var(--border);}
+  .terms-strip{
+    margin-top:36px; display:flex; gap:28px; flex-wrap:wrap; font-size:0.9rem; color:var(--text-muted);
+  }
+  .terms-strip span{display:flex; align-items:center; gap:8px;}
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0;}
+
+  .section-label{
+    text-transform:uppercase; letter-spacing:0.08em; font-size:0.78rem; font-weight:700;
+    color:var(--accent); margin:0 0 10px;
+  }
+  h2{font-size:clamp(1.5rem, 2.6vw, 2rem); font-weight:800; letter-spacing:-0.015em; margin:0 0 40px;}
+
+  .services{background:var(--bg-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:14px; padding:26px;
+    box-shadow:var(--shadow);
+  }
+  .card .icon{font-size:1.6rem; margin-bottom:14px; display:block;}
+  .card h3{font-size:1.08rem; margin:0 0 10px; font-weight:700;}
+  .card p{margin:0; color:var(--text-muted); font-size:0.95rem;}
+
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .step .num{
+    width:34px; height:34px; border-radius:50%; border:1.5px solid var(--accent); color:var(--accent);
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem; margin-bottom:14px;
+  }
+  .step h4{margin:0 0 8px; font-size:1rem; font-weight:700;}
+  .step p{margin:0; color:var(--text-muted); font-size:0.92rem;}
+
+  .about{background:var(--bg-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
+  .about-inner{display:flex; gap:40px; align-items:flex-start; flex-wrap:wrap;}
+  .about-inner p{color:var(--text-muted); max-width:62ch; font-size:1.02rem;}
+  .about-inner strong{color:var(--text);}
+
+  .cta-band{text-align:center;}
+  .cta-band h2{margin-bottom:14px;}
+  .cta-band p{color:var(--text-muted); max-width:48ch; margin:0 auto 28px; font-size:1.05rem;}
+
+  footer{border-top:1px solid var(--border); padding:32px 0; color:var(--text-muted); font-size:0.85rem;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+
+  @media (max-width:760px){
+    .grid3{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr; row-gap:32px;}
+    .about-inner{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span class="mark">🧭</span> Northbound Digital</div>
+    <a class="cta" href="mailto:ccoolavi7@gmail.com?subject=Project%20inquiry">Get a quote</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Fast, fixed-price technical builds.</h1>
+    <p class="lead">Websites, cloud &amp; server setup, and workflow automation — scoped in a short call, delivered in days, not weeks.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="mailto:ccoolavi7@gmail.com?subject=Project%20inquiry">Get a fixed quote</a>
+      <a class="btn btn-secondary" href="#how-it-works">How it works</a>
+    </div>
+    <div class="terms-strip">
+      <span><span class="dot"></span>Fixed price, agreed upfront</span>
+      <span><span class="dot"></span>50% to start, balance on delivery</span>
+      <span><span class="dot"></span>Typical turnaround: days, not weeks</span>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <p class="section-label">What we build</p>
+    <h2>Three service lines, one fixed-price process.</h2>
+    <div class="grid3">
+      <div class="card">
+        <span class="icon">🌐</span>
+        <h3>Website builds</h3>
+        <p>Static or dynamic sites — marketing pages, small business sites, internal tools — built, deployed, and handed over ready to use.</p>
+      </div>
+      <div class="card">
+        <span class="icon">☁️</span>
+        <h3>Cloud &amp; server setup</h3>
+        <p>VPS provisioning, deployment pipelines, backups, monitoring — the infrastructure work most teams keep putting off.</p>
+      </div>
+      <div class="card">
+        <span class="icon">⚙️</span>
+        <h3>Workflow automation</h3>
+        <p>n8n, API integrations, internal tooling — connecting the systems you already use so less gets done by hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works">
+  <div class="wrap">
+    <p class="section-label">Process</p>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Tell us what you need</h4>
+        <p>A short call or written brief — no lengthy discovery process.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Get a fixed price</h4>
+        <p>A clear scope, price, and delivery date — agreed before any work starts.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>50% upfront</h4>
+        <p>Work begins once the first half is in — no surprises later.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h4>Delivered, then balance</h4>
+        <p>You review the finished work; the remaining 50% is due on handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap about-inner">
+    <div>
+      <p class="section-label">Background</p>
+      <h2 style="margin-bottom:16px;">Ops-minded, technically hands-on.</h2>
+    </div>
+    <p>7+ years in business operations and analytics (ex-NielsenIQ), now paired with hands-on technical delivery. That combination means scopes stay realistic, timelines stay honest, and builds are judged the way an operator would judge them — <strong>does it actually work, day to day</strong> — not just whether it demos well once.</p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <p class="section-label">Get started</p>
+    <h2>Have something that needs building?</h2>
+    <p>Send a short brief — what you need, roughly when, and any constraints. A fixed price and timeline usually comes back within a day.</p>
+    <a class="btn btn-primary" href="mailto:ccoolavi7@gmail.com?subject=Project%20inquiry">ccoolavi7@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Northbound Digital</span>
+    <span>Fixed price · 50% upfront · Delivered in days</span>
+  </div>
+</footer>
+
+</body>
+</html>
